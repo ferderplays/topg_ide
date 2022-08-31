@@ -23,14 +23,7 @@ fake_file_btn.addEventListener("click", function() {
     real_file_btn.click();
 })
 
-real_file_btn.addEventListener("change", function() {
-    if (real_file_btn.value) {
-        fake_file_txt.innerHTML = real_file_btn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
-        
-    } else {
-        fake_file_txt.innerHTML = "No file chosen...";
-    }
-})
+
 
 const lang = {
     js: {
@@ -92,3 +85,20 @@ editors.forEach(el => {
     el.addEventListener("input", () => highlight(el));
     highlight(el); // Init!
 });
+
+real_file_btn.addEventListener("change", function() {
+    if (real_file_btn.value) {
+        fake_file_txt.innerHTML = real_file_btn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+        var filecontent = new FileReader()
+        filecontent.onload = function() {
+            editors.forEach(el => {
+                el.innerHTML = filecontent.result
+                highlight(el)
+            })
+        }
+        filecontent.readAsText(this.files[0])
+        
+    } else {
+        fake_file_txt.innerHTML = "No file chosen...";
+    }
+})
