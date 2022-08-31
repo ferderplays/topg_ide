@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    font-family: Verdana, sans-serif;
+    -webkit-app-region: drag;
+    overflow-x: hidden;
+}
+
+.title-bar-container {
+    background: rgb(20, 20, 20);
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    color: white;
+    font-size: 40px;
+    border-bottom: 5px solid red;
+}
+
+.title-bar-logo {
+    -webkit-app-region: no-drag;
+}
+
+.title-bar-buttons li {
+    display: inline-block;
+    font-size: 30px;
+    padding: 0px 15px;
+}
+
+.minimalize-button {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    height: 50px;
+    width: 50px;
+    font-size: 35px;
+    border: none;
+    background: rgb(20, 20, 20);
+    color: white;
+    transition: all 0.5s;
+    -webkit-app-region: no-drag;
+}
+
+.minimalize-button:hover {
+    background: rgb(30, 30, 30);
+}
+
+.maximize-button {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    height: 50px;
+    width: 50px;
+    font-size: 35px;
+    border: none;
+    background: rgb(20, 20, 20);
+    color: white;
+    transition: all 0.5s;
+    -webkit-app-region: no-drag;
+}
+
+.maximize-button:hover {
+    background: rgb(30, 30, 30);
+}
+/*
+.square-container {
+    height: 15px;
+    width: 15px;
+    border: 5px solid white;
+}
+*/
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    font-size: 35px;
+    border: none;
+    background: rgb(20, 20, 20);
+    color: white;
+    transition: all 0.5s;
+    -webkit-app-region: no-drag;
+}
+
+.close-button:hover {
+    background: red;
+}
+
+.x-container {
+    transform: rotate(45deg);
+}
+
+.side-bar-container {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: calc(100% - 50px);
+    width: 260px;
+    background: rgb(10, 10, 10);
+    color: rgb(30, 30, 30);
+}
+
+#my-file-button {
+    background: red;
+    border: none;
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 25px;
+}
+
+.editor-container {
+    position: absolute;
+    top: 50px;
+    left: 260px;
+    width: calc(100% - 260px);
+    height: calc(100% - 50px);
+    background: rgb(15, 15, 15);
+    color: white;
+}
+
+.editor-gutter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background: rgb(25, 25, 25);
+}
+
+.editor-colors {
+    position: absolute;
+    left: 100px;
+    height: calc(100% - 50px);
+    width: calc(100% - 260px);
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-align: justify;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#editor {
+    position: absolute;
+    left: 100px;
+    height: calc(100% - 50px);
+    width: calc(100% - 260px);
+    color: transparent;
+    caret-color: red;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-align: justify;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#editor:focus {
+    border: none;
+    outline: none;
+}
+
+i.topg_kwrd { color: red; }
+i.topg_decl { color: rgb(255, 56, 56); }
+i.topg_fncs { color: rgb(255, 107, 107); }
+i.topg_parn { color: rgb(255, 110, 110); }

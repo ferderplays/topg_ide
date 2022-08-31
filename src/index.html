@@ -1,0 +1,51 @@
+<!--index.html-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="title-bar-container">
+      <div class="title-bar-logo">topG.IDE</div>
+      <ul class="title-bar-buttons">
+        <li>
+          <button class="minimalize-button" id="minimalize">
+            -
+          </button>
+        </li>
+        <li>
+          <button class="maximize-button" id="maximize">
+            &square;
+          </button>
+        </li>
+        <li>
+          <button class="close-button" id="close">
+            <div class="x-container">
+              +
+            </div>
+          </button>
+        </li>
+      </ul>
+    </header>
+    <div class="side-bar-container">
+      <div class="file-selector-container">
+        <input type="file" id="my-file-real" accept=".topg" hidden>
+        <button id="my-file-button">Upload file</button>
+        <span id="my-file-text">No file chosen</span>
+      </div>
+    </div>
+    <div class="editor-container">
+      <div class="editor-gutter"></div>
+      <div class="editor-colors"></div>
+      <div class="editor-pane" id="editor" data-lang="topg"></div>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>-->
+    <script src="render.js"></script>
+  </body>
+</html>

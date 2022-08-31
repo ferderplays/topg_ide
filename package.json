@@ -1,0 +1,15 @@
+{
+  "name": "topgide",
+  "version": "1.0.0",
+  "description": "topG language IDE made by BrightCode",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "brightcode",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^20.1.0",
+    "electron-packager": "^16.0.0"
+  }
+}
