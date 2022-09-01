@@ -23,8 +23,6 @@ fake_file_btn.addEventListener("click", function() {
     real_file_btn.click();
 })
 
-
-
 const lang = {
     js: {
         equa: /(\b=\b)/g,
@@ -63,6 +61,7 @@ const lang = {
         decl: /(?<=^|\s*)(byte|char|const|int|float|long|short|unsigned)/g,
         fncs: /(?<=^|\s*)(pln)/g,
         parn: /(?<=^|\s*)(\(|\))/g,
+        nwrd: /(?<=^|\s*)(nword)/g,
     }
 };
   
@@ -86,10 +85,12 @@ editors.forEach(el => {
     highlight(el); // Init!
 });
 
+let currentfile;
+var filecontent = new FileReader()
+
 real_file_btn.addEventListener("change", function() {
     if (real_file_btn.value) {
         fake_file_txt.innerHTML = real_file_btn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
-        var filecontent = new FileReader()
         filecontent.onload = function() {
             editors.forEach(el => {
                 el.innerHTML = filecontent.result
@@ -97,8 +98,28 @@ real_file_btn.addEventListener("change", function() {
             })
         }
         filecontent.readAsText(this.files[0])
-        
+        currentfile = this.files[0]
     } else {
         fake_file_txt.innerHTML = "No file chosen...";
     }
 })
+
+const runbtn = document.getElementById("runbtn")
+
+runbtn.addEventListener("click", function() {
+    editors.forEach(el => {
+        compiler(el.innerHTML)
+    })
+})
+
+function compiler(content) {
+    var contents = content
+    const output = document.getElementById("output")
+    if (contents.includes("pln(\"")) {
+        var message = contents.replace("pln(\"", "").replace("\");", "")
+        var newoutln = document.createElement("div")
+        var newoutlntxt = document.createTextNode(message)
+        newoutln.appendChild(newoutlntxt)
+        output.appendChild(newoutln)
+    }
+}

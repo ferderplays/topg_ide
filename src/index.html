@@ -6,12 +6,13 @@
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <title>topG.IDE by Fore-iome</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header class="title-bar-container">
       <div class="title-bar-logo">topG.IDE</div>
+      <div class="title-bar-run-button"><button class="run-button" id="runbtn">Run</button></div>
       <ul class="title-bar-buttons">
         <li>
           <button class="minimalize-button" id="minimalize">
@@ -43,6 +44,11 @@
       <div class="editor-gutter"></div>
       <div class="editor-colors"></div>
       <div class="editor-pane" id="editor" data-lang="topg"></div>
+    </div>
+    <div class="output-container">
+      <div id="output">
+        <div class="signal-one">Welcome to topG.IDE Console/Output</div>
+      </div>
     </div>
     <!-- You can also require other files to run in this process -->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>-->
